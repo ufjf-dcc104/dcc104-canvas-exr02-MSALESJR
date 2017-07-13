@@ -11,11 +11,11 @@ PLAYER 1 :
 A     D    SPACE
    S
 
-
+```
 <p align="center">
   <img src="tela.png" width="100%"/>
   <img src="tela_2.png" width="100%"/>
 </p>
-```
+
 
 

@@ -7,9 +7,9 @@
 Controle
 
 PLAYER 1 :  
-   W
+   
 A     D    SPACE
-   S
+   
 
 ```
 <p align="center">

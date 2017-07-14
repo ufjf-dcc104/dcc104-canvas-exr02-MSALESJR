@@ -16,6 +16,12 @@ function Level()
     this.player = null;
     this.pontos = 0;
     this.vidas  = 5;
+    this.audioColisao = new Audio("audio/explosion.wav");
+    this.audioColisao.volume = 0.5;
+    this.audioColisao.load();
+    this.audioTiro = new Audio("audio/laser.wav");
+    this.audioTiro.volume = 0.5;
+    this.audioTiro.load();
 }
 
 Level.prototype.tiroPlayer = function(){
@@ -30,6 +36,7 @@ Level.prototype.tiroPlayer = function(){
         tiro.vy     = -500;
         this.tiro_player.push(tiro);
         this.player.tempo_do_ultimo_tiro = 0;
+        this.audioTiro.play();
     }
 }
 
@@ -46,6 +53,7 @@ Level.prototype.tiroInimigo = function(){
             tiro.vy     = 300;
             this.tiro_inimigo.push(tiro);
             inimigo.tempo_do_ultimo_tiro = 0;
+            this.audioTiro.play();
         }
     }
 }
@@ -127,6 +135,7 @@ Level.prototype.colisaoEntreObjetos = function(){
                 this.pontos += 100;
                 this.tiro_player.splice(i,1);
                 this.inimigos.splice(j,1);
+                this.audioColisao.play();
             }
         }
     }
@@ -140,6 +149,7 @@ Level.prototype.colisaoEntreObjetos = function(){
                 this.pontos += 100;
                 this.tiro_inimigo.splice(i,1);
                 this.inimigos.splice(j,1);
+                this.audioColisao.play();
             }
         }
     }
@@ -150,6 +160,7 @@ Level.prototype.colisaoEntreObjetos = function(){
         if(this.colidiu(player,inimigo)){
             this.vidas -= 1;
             this.inimigos.splice(j,1);
+            this.audioColisao.play();
         }
     }
 
@@ -159,6 +170,7 @@ Level.prototype.colisaoEntreObjetos = function(){
         if(this.colidiu(player,inimigo)){
             this.vidas -= 1;
             this.tiro_inimigo.splice(j,1);
+            this.audioColisao.play();
         }
     }
 }

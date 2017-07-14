@@ -8,7 +8,7 @@ Controle
 
 PLAYER 1 :  
    
-A     D    SPACE
+<--  -->    SPACE
    
 
 ```
